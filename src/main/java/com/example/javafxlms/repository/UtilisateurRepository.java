@@ -49,7 +49,7 @@ public class UtilisateurRepository {
                 String prenom = resultatRequette.getString(3);
                 String email1 = resultatRequette.getString(4);
                 String mdP = resultatRequette.getString(5);
-                int role = resultatRequette.getInt(11);
+                int role = resultatRequette.getInt(7);
                 return new Utilisateur(id,nom, prenom,email1,mdP,role);
             }
 
@@ -68,7 +68,7 @@ public class UtilisateurRepository {
             label.setText("erreur vous n'avez pas de compte");
         }else {
 
-
+            System.out.println(mdp);
             System.out.println(user.getMdp());
             if (BCrypt.checkpw(mdp,user.getMdp())){
                 return user;

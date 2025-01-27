@@ -1,11 +1,10 @@
 package com.example.javafxlms;
 
+import com.example.javafxlms.repository.UtilisateurRepository;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -34,7 +33,7 @@ public class LoginController {
 
     @FXML
     void OnClickLogin(ActionEvent event) {
-
+        UtilisateurRepository.connexion(userTextField.getText(),passwordField.getText(),new Label());
     }
 
     @FXML

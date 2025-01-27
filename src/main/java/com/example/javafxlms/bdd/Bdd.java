@@ -4,12 +4,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public class Bdd {
     private String serveur = "localhost";
-    private String nomDeLaBase = " javafx_lms";
+    private String nomDeLaBase = "javafx_lms";
     private String utilisateur = "root";
     private String motDePasse = "";
 
     private String getUrl() {
-        return "jdbc:mysql://" + serveur + "/" + nomDeLaBase +  "?serverTimezone=UTC";
+        return "jdbc:mysql://" + serveur + "/" + nomDeLaBase;
     }
 
     public Connection getConnection() {
