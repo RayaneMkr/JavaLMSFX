@@ -9,6 +9,16 @@ public class Commande {
     private int ref_fournisseur;
     private int ref_produit;
 
+    public Commande(int id_commande, int prix, int quantite, String etat, int date_commande, int ref_fournisseur, int ref_produit) {
+        this.id_commande = id_commande;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.etat = etat;
+        this.date_commande = date_commande;
+        this.ref_fournisseur = ref_fournisseur;
+        this.ref_produit = ref_produit;
+    }
+
     public int getId_commande() {
 
         return id_commande;

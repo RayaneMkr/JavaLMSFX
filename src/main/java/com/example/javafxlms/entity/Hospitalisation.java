@@ -8,6 +8,15 @@ public class Hospitalisation {
     private int num_chambre;
     private int ref_utilisateur;
 
+    public Hospitalisation(int id_hospitalisation, int date_debut, int date_fin, String maladie, int num_chambre, int ref_utilisateur) {
+        this.id_hospitalisation = id_hospitalisation;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.maladie = maladie;
+        this.num_chambre = num_chambre;
+        this.ref_utilisateur = ref_utilisateur;
+    }
+
     public int getId_hospitalisation() {
         return id_hospitalisation;
     }

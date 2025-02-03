@@ -8,6 +8,15 @@ public class Produit {
     private int date_creation;
     private int ref_utilisateur;
 
+    public Produit(int id_produit, String libelle, String description, int dangerosite, int date_creation, int ref_utilisateur) {
+        this.id_produit = id_produit;
+        this.libelle = libelle;
+        this.description = description;
+        this.dangerosite = dangerosite;
+        this.date_creation = date_creation;
+        this.ref_utilisateur = ref_utilisateur;
+    }
+
     public int getId_produit() {
         return id_produit;
     }

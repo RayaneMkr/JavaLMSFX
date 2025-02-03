@@ -8,6 +8,15 @@ public class Fournisseur {
     private  int cp;
     private  String ville;
 
+    public Fournisseur(int id_fournisseur, String nom, String email, String rue, int cp, String ville) {
+        this.id_fournisseur = id_fournisseur;
+        this.nom = nom;
+        this.email = email;
+        this.rue = rue;
+        this.cp = cp;
+        this.ville = ville;
+    }
+
     public int getId_fournisseur() {
         return id_fournisseur;
     }

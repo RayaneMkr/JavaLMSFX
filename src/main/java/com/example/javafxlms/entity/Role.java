@@ -4,6 +4,11 @@ public class Role {
   private int id_role;
   private String nom_role;
 
+    public Role(int id_role, String nom_role) {
+        this.id_role = id_role;
+        this.nom_role = nom_role;
+    }
+
     public int getId_role() {
         return id_role;
     }
