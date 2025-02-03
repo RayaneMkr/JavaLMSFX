@@ -7,8 +7,15 @@ public class Utilisateur {
     private String email;
     private String mdp;
     private String num_secu;
-    private String role;
-    public Utilisateur(int idUtilisateur, String nom, String prenom, String email, String mdp, int Role) {
+    private int role;
+
+    public Utilisateur(int id_utilisateur, String nom, String prenom, String email, String mdp, int role) {
+        this.id_utilisateur = id_utilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+        this.role = role;
     }
 
     public int getId_utilisateur() {
@@ -59,11 +66,24 @@ public class Utilisateur {
         this.num_secu = num_secu;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "id_utilisateur=" + id_utilisateur +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", mdp='" + mdp + '\'' +
+                ", num_secu='" + num_secu + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

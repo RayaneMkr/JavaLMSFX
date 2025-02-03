@@ -43,6 +43,7 @@ public class UtilisateurRepository {
             PreparedStatement requete = connection.prepareStatement(sql);
             requete.setString(1,email);
             ResultSet resultatRequette = requete.executeQuery();
+            System.out.println(resultatRequette);
             if(resultatRequette.next()){
                 int id = resultatRequette.getInt(1);
                 String nom = resultatRequette.getString(2);
@@ -50,8 +51,13 @@ public class UtilisateurRepository {
                 String email1 = resultatRequette.getString(4);
                 String mdP = resultatRequette.getString(5);
                 int role = resultatRequette.getInt(7);
-                return new Utilisateur(id,nom, prenom,email1,mdP,role);
+                System.out.println(email + " "+ mdP );
+                Utilisateur user = new Utilisateur(id,nom, prenom,email1,mdP,role);
+
+
+                return user;
             }
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -62,7 +68,7 @@ public class UtilisateurRepository {
     public static Utilisateur connexion(String identifiant, String mdp, Label label){
         //System.out.println("Id : " + identifiant);
         Utilisateur user = getUserByEmail(identifiant);
-        //System.out.println("Hello : " + user);
+        System.out.println("Hello : " + user);
 
         if (user == null){
             label.setText("erreur vous n'avez pas de compte");
