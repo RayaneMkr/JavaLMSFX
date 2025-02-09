@@ -1,11 +1,15 @@
 package com.example.javafxlms;
 
+import com.example.javafxlms.entity.Roles;
+import com.example.javafxlms.entity.UserConnecte;
 import com.example.javafxlms.repository.UtilisateurRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
+
+import java.io.IOException;
 
 public class RegisterController {
 
@@ -26,6 +30,14 @@ public class RegisterController {
 
     @FXML
     private Label erreur;
+
+    public RegisterController() throws IOException {
+        if (UserConnecte.getINSTANCE()==null) {
+            HelloApplication.changeScene("accueil/login");
+        } else if (UserConnecte.getINSTANCE().getRole()!= Roles.getIdRole(Roles.ADMIN)) {
+            HelloApplication.changeScene("accueil/login");
+        }
+    }
 
     @FXML
     protected void inscription() {

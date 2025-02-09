@@ -1,5 +1,8 @@
 package com.example.javafxlms;
 
+import com.example.javafxlms.entity.Roles;
+import com.example.javafxlms.entity.UserConnecte;
+import com.example.javafxlms.entity.Utilisateur;
 import com.example.javafxlms.repository.UtilisateurRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -27,8 +30,9 @@ public class LoginController {
 
     @FXML
     void OnClickInscription(ActionEvent event) {
-        HelloApplication.changeScene("register","inscription");
-
+       if (UserConnecte.getINSTANCE()!=null && UserConnecte.getINSTANCE().getRole()==Roles.getIdRole(Roles.ADMIN)) {
+          HelloApplication.changeScene("pageAdmin/register", "inscription");
+        }
     }
 
     @FXML

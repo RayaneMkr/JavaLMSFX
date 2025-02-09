@@ -1,6 +1,7 @@
 package com.example.javafxlms.repository;
 
 import com.example.javafxlms.bdd.Bdd;
+import com.example.javafxlms.entity.UserConnecte;
 import com.example.javafxlms.entity.Utilisateur;
 import javafx.scene.control.Label;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -69,7 +70,6 @@ public class UtilisateurRepository {
         //System.out.println("Id : " + identifiant);
         Utilisateur user = getUserByEmail(identifiant);
         System.out.println("Hello : " + user);
-
         if (user == null){
             label.setText("erreur vous n'avez pas de compte");
         }else {
@@ -77,6 +77,7 @@ public class UtilisateurRepository {
             System.out.println(mdp);
             System.out.println(user.getMdp());
             if (BCrypt.checkpw(mdp,user.getMdp())){
+                UserConnecte.initInstance(user);
                 return user;
             } else {
                 label.setText("Mot de passe incorrect");

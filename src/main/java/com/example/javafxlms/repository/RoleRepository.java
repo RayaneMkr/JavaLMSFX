@@ -13,7 +13,7 @@ public class RoleRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    // Récupérer tous les rôles
+
     public static ArrayList<Role> recupererRoles() {
         ArrayList<Role> liste = new ArrayList<>();
         String sql = "SELECT * FROM role";
@@ -32,7 +32,7 @@ public class RoleRepository {
         return liste;
     }
 
-    // Ajouter un rôle
+
     public static void ajouterRole(String nom_role) {
         String sql = "INSERT INTO role (nom_role) VALUES (?)";
         try {
@@ -44,7 +44,7 @@ public class RoleRepository {
         }
     }
 
-    // Récupérer un rôle par son ID
+
     public static Role getRoleById(int id_role) {
         String sql = "SELECT * FROM role WHERE id_role = ?";
         try {

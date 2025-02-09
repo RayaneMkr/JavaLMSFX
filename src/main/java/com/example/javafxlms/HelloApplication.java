@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         maStage= stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("accueil/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         maStage.setTitle("Hello!");
         maStage.setScene(scene);
@@ -24,7 +24,6 @@ public class HelloApplication extends Application {
     }
 
     public static void changeScene(String fxml , String nomScene) {
-        maStage.close();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml+".fxml"));
         Scene scene = null;
         try {
@@ -36,6 +35,13 @@ public class HelloApplication extends Application {
             e.printStackTrace();
         }
 
+    }
+
+    public static void changeScene(String nomDuFichierFxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(nomDuFichierFxml + ".fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 760);
+       maStage.setScene(scene);
+        maStage.show();
     }
 
     public static void changeScene(String fxml, Object controlleur) {

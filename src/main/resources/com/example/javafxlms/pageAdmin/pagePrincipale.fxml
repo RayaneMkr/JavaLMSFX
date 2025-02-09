@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane prefHeight="242.0" prefWidth="774.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.javafxlms.controller.admin.AdminController">
+    <tabs>
+        <Tab fx:id="userManagementTab" text="Gestion des utilisateurs" />
+        <Tab fx:id="roleManagementTab" text="Gestion des rôles" />
+        <Tab fx:id="productManagementTab" text="Gestion des produits" />
+        <Tab fx:id="supplierManagementTab" text="Gestion des fournisseurs" />
+        <Tab fx:id="orderManagementTab" text="Gestion des commandes" />
+        <Tab fx:id="reportsTab" text="Rapports" />
+    </tabs>
+</TabPane>

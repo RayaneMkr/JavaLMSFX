@@ -1,7 +1,7 @@
 package com.example.javafxlms.entity;
 
 public class Utilisateur {
-    private  int id_utilisateur;
+    private int id_utilisateur;
     private String nom;
     private String prenom;
     private String email;
@@ -74,6 +74,8 @@ public class Utilisateur {
         this.role = role;
     }
 
+
+
     @Override
     public String toString() {
         return "Utilisateur{" +
@@ -83,7 +85,10 @@ public class Utilisateur {
                 ", email='" + email + '\'' +
                 ", mdp='" + mdp + '\'' +
                 ", num_secu='" + num_secu + '\'' +
-                ", role='" + role + '\'' +
+                ", role=" + role +
                 '}';
     }
+
+
+
 }
