@@ -1,42 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.admin.GestionCommandeController" spacing="10">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.javafxlms.controller.admin.GestionCommandeController">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <TextField fx:id="searchField" promptText="Rechercher une commande" HBox.hgrow="ALWAYS"/>
-        <Button text="Rechercher" onAction="#handleSearch"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <TextField fx:id="searchField" onAction="#searchField" promptText="Rechercher une commande" HBox.hgrow="ALWAYS" />
+        <Button onAction="#handleSearch" text="Rechercher" />
     </HBox>
 
     <TableView fx:id="orderTable" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn text="ID" fx:id="idColumn"/>
-            <TableColumn text="Prix" fx:id="prixColumn"/>
-            <TableColumn text="Quantité" fx:id="quantiteColumn"/>
-            <TableColumn text="État" fx:id="etatColumn"/>
-            <TableColumn text="Date de commande" fx:id="dateCommandeColumn"/>
-            <TableColumn text="Fournisseur" fx:id="fournisseurColumn"/>
-            <TableColumn text="Produit" fx:id="produitColumn"/>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="prixColumn" text="Prix" />
+            <TableColumn fx:id="quantiteColumn" text="Quantité" />
+            <TableColumn fx:id="etatColumn" text="État" />
+            <TableColumn fx:id="dateCommandeColumn" text="Date de commande" />
+            <TableColumn fx:id="fournisseurColumn" text="Fournisseur" />
+            <TableColumn fx:id="produitColumn" text="Produit" />
         </columns>
     </TableView>
 
-    <GridPane vgap="5" hgap="5">
-        <TextField fx:id="prixField" promptText="Prix" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField fx:id="quantiteField" promptText="Quantité" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <ComboBox fx:id="etatComboBox" promptText="État" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <DatePicker fx:id="dateCommandePicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <ComboBox fx:id="fournisseurComboBox" promptText="Fournisseur" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <ComboBox fx:id="produitComboBox" promptText="Produit" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <GridPane hgap="5" vgap="5">
+        <TextField fx:id="prixField" promptText="Prix" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="quantiteField" promptText="Quantité" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <ComboBox fx:id="etatComboBox" onAction="#etat" promptText="État" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <DatePicker fx:id="dateCommandePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <ComboBox fx:id="fournisseurComboBox" onAction="#fournisseur" promptText="Fournisseur" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ComboBox fx:id="produitComboBox" onAction="#produit" promptText="Produit" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Ajouter" onAction="#handleAddOrder"/>
-        <Button text="Modifier" onAction="#handleEditOrder"/>
-        <Button text="Supprimer" onAction="#handleDeleteOrder"/>
-        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="ajouter" onAction="#ajoutCommande" text="Ajouter" />
+        <Button fx:id="modifier" onAction="#modifCommande" text="Modifier" />
+        <Button fx:id="supprimer" onAction="#supprCommande" text="Supprimer" />
+
     </HBox>
 </VBox>
