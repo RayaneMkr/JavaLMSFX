@@ -1,5 +1,6 @@
-package com.example.javafxlms;
+package com.example.javafxlms.controller;
 
+import com.example.javafxlms.HelloApplication;
 import com.example.javafxlms.entity.Roles;
 import com.example.javafxlms.entity.UserConnecte;
 import com.example.javafxlms.repository.UtilisateurRepository;

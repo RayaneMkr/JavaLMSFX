@@ -1,38 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorProductRequestsController" spacing="10">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+<VBox spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxlms.controller.medecin.DemandeProduitController">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <TextField fx:id="searchField" promptText="Rechercher un produit" HBox.hgrow="ALWAYS"/>
-        <Button text="Rechercher" onAction="#handleSearch"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <TextField fx:id="searchField" onAction="#searchField" promptText="Rechercher un produit" HBox.hgrow="ALWAYS" />
+        <Button fx:id="rechercher" onAction="#rechercher" text="Rechercher" />
     </HBox>
 
     <TableView fx:id="productRequestTable" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn text="ID" fx:id="idColumn"/>
-            <TableColumn text="Produit" fx:id="produitColumn"/>
-            <TableColumn text="Quantité" fx:id="quantiteColumn"/>
-            <TableColumn text="Date de demande" fx:id="dateDemandeColumn"/>
-            <TableColumn text="Statut" fx:id="statutColumn"/>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="produitColumn" text="Produit" />
+            <TableColumn fx:id="quantiteColumn" text="Quantité" />
+            <TableColumn fx:id="dateDemandeColumn" text="Date de demande" />
+            <TableColumn fx:id="statutColumn" text="Statut" />
         </columns>
     </TableView>
 
-    <GridPane vgap="5" hgap="5">
-        <ComboBox fx:id="produitComboBox" promptText="Produit" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <Spinner fx:id="quantiteSpinner" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-        <DatePicker fx:id="dateDemandePicker" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <Label fx:id="statutLabel" text="Statut: En attente" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <GridPane hgap="5" vgap="5">
+        <ComboBox fx:id="produitComboBox" onAction="#produit" promptText="Produit" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Spinner fx:id="quantiteSpinner" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <DatePicker fx:id="dateDemandePicker" onAction="#date" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="statutLabel" text="Statut: En attente" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Envoyer demande" onAction="#handleSendRequest"/>
-        <Button text="Modifier demande" onAction="#handleEditRequest"/>
-        <Button text="Annuler demande" onAction="#handleCancelRequest"/>
-        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="envoyerDemande" onAction="#envoyerDemande" text="Envoyer demande" />
+        <Button fx:id="modifierDemande" onAction="#modifierDemande" text="Modifier demande" />
+        <Button fx:id="annulerDemande" onAction="#annulerDemande" text="Annuler demande" />
     </HBox>
 </VBox>
