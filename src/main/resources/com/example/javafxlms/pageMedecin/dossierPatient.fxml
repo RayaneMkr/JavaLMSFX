@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorPatientFilesController" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un patient" HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+    </HBox>
+
+    <TableView fx:id="patientFileTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Nom" fx:id="nomColumn"/>
+            <TableColumn text="Prénom" fx:id="prenomColumn"/>
+            <TableColumn text="Date d'arrivée" fx:id="dateArriveeColumn"/>
+            <TableColumn text="Symptômes" fx:id="symptomesColumn"/>
+            <TableColumn text="Gravité" fx:id="graviteColumn"/>
+        </columns>
+    </TableView>
+
+    <TabPane>
+        <Tab text="Informations patient">
+            <GridPane vgap="5" hgap="5">
+                <TextField fx:id="nomField" promptText="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0" editable="false"/>
+                <TextField fx:id="prenomField" promptText="Prénom" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="false"/>
+                <TextField fx:id="numSecuField" promptText="Numéro de sécurité sociale" GridPane.columnIndex="0" GridPane.rowIndex="1" editable="false"/>
+                <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="1" editable="false"/>
+            </GridPane>
+        </Tab>
+        <Tab text="Dossier médical">
+            <VBox spacing="5">
+                <TextArea fx:id="symptomesArea" promptText="Symptômes" VBox.vgrow="ALWAYS"/>
+                <TextArea fx:id="diagnosticArea" promptText="Diagnostic" VBox.vgrow="ALWAYS"/>
+                <TextArea fx:id="traitementArea" promptText="Traitement" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Enregistrer modifications" onAction="#handleSaveChanges"/>
+        <Button text="Prescrire ordonnance" onAction="#handlePrescribeOrder"/>
+        <Button text="Hospitaliser" onAction="#handleHospitalize"/>
+    </HBox>
+</VBox>

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.gestionnaire.PagePrincipale">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorMainController">
     <top>
         <MenuBar>
             <Menu text="Fichier">
@@ -17,21 +17,21 @@
     </top>
     <center>
         <TabPane>
-            <Tab text="Gestion des produits" closable="false">
-                <fx:include source="stock_manager_product_management.fxml"/>
+            <Tab text="Dossiers patients" closable="false">
+                <fx:include source="doctor_patient_files.fxml"/>
             </Tab>
-            <Tab text="Gestion des fournisseurs" closable="false">
-                <fx:include source="stock_manager_supplier_management.fxml"/>
+            <Tab text="Hospitalisations" closable="false">
+                <fx:include source="doctor_hospitalizations.fxml"/>
             </Tab>
-            <Tab text="Gestion des commandes" closable="false">
-                <fx:include source="stock_manager_order_management.fxml"/>
+            <Tab text="Rendez-vous" closable="false">
+                <fx:include source="doctor_appointments.fxml"/>
             </Tab>
             <Tab text="Demandes de produits" closable="false">
-                <fx:include source="stock_manager_product_requests.fxml"/>
+                <fx:include source="doctor_product_requests.fxml"/>
             </Tab>
         </TabPane>
     </center>
     <bottom>
-        <Label fx:id="statusLabel" text="Connecté en tant que gestionnaire de stock"/>
+        <Label fx:id="statusLabel" text="Connecté en tant que médecin"/>
     </bottom>
 </BorderPane>

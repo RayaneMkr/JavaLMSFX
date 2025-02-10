@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.secretaire.MainController">
+    <top>
+        <MenuBar>
+            <Menu text="Fichier">
+                <MenuItem text="Déconnexion" onAction="#handleLogout"/>
+                <MenuItem text="Quitter" onAction="#handleExit"/>
+            </Menu>
+            <Menu text="Aide">
+                <MenuItem text="À propos" onAction="#handleAbout"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <TabPane>
+            <Tab text="Gestion des patients" closable="false">
+                <fx:include source="gestionPatient.fxml"/>
+            </Tab>
+            <Tab text="Dossiers de prise en charge" closable="false">
+                <fx:include source="priseEnCharge.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+    <bottom>
+        <Label fx:id="statusLabel" text="Connecté en tant que secrétaire"/>
+    </bottom>
+</BorderPane>

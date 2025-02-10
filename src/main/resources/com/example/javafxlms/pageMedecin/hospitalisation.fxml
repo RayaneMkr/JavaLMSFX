@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorHospitalizationsController" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher une hospitalisation" HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+    </HBox>
+
+    <TableView fx:id="hospitalizationTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Patient" fx:id="patientColumn"/>
+            <TableColumn text="Date de début" fx:id="dateDebutColumn"/>
+            <TableColumn text="Date de fin" fx:id="dateFinColumn"/>
+            <TableColumn text="Maladie" fx:id="maladieColumn"/>
+            <TableColumn text="Numéro de chambre" fx:id="numChambreColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane vgap="5" hgap="5">
+        <ComboBox fx:id="patientComboBox" promptText="Patient" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <DatePicker fx:id="dateDebutPicker" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <DatePicker fx:id="dateFinPicker" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="maladieField" promptText="Maladie" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="numChambreComboBox" promptText="Numéro de chambre" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#handleAddHospitalization"/>
+        <Button text="Modifier" onAction="#handleEditHospitalization"/>
+        <Button text="Terminer l'hospitalisation" onAction="#handleEndHospitalization"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.SecretaryCareFileManagementController" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un dossier" HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+    </HBox>
+
+    <TableView fx:id="careFileTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Patient" fx:id="patientColumn"/>
+            <TableColumn text="Date d'arrivée" fx:id="dateArriveeColumn"/>
+            <TableColumn text="Heure d'arrivée" fx:id="heureArriveeColumn"/>
+            <TableColumn text="Symptômes" fx:id="symptomesColumn"/>
+            <TableColumn text="Gravité" fx:id="graviteColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane vgap="5" hgap="5">
+        <ComboBox fx:id="patientComboBox" promptText="Patient" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <DatePicker fx:id="dateArriveePicker" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="heureArriveeField" promptText="Heure d'arrivée" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextArea fx:id="symptomesArea" promptText="Symptômes" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2"/>
+        <Spinner fx:id="graviteSpinner" min="1" max="5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#handleAddCareFile"/>
+        <Button text="Modifier" onAction="#handleEditCareFile"/>
+        <Button text="Supprimer" onAction="#handleDeleteCareFile"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorAppointmentsController" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <DatePicker fx:id="datePicker" promptText="Sélectionner une date"/>
+        <Button text="Afficher les rendez-vous" onAction="#handleShowAppointments"/>
+    </HBox>
+
+    <TableView fx:id="appointmentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Heure" fx:id="heureColumn"/>
+            <TableColumn text="Patient" fx:id="patientColumn"/>
+            <TableColumn text="Motif" fx:id="motifColumn"/>
+            <TableColumn text="Statut" fx:id="statutColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane vgap="5" hgap="5">
+        <ComboBox fx:id="patientComboBox" promptText="Patient" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <DatePicker fx:id="dateAppointmentPicker" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="heureComboBox" promptText="Heure" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="motifField" promptText="Motif" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#handleAddAppointment"/>
+        <Button text="Modifier" onAction="#handleEditAppointment"/>
+        <Button text="Annuler" onAction="#handleCancelAppointment"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    </HBox>
+</VBox>

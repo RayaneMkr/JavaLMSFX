@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.DoctorProductRequestsController" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un produit" HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+    </HBox>
+
+    <TableView fx:id="productRequestTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Produit" fx:id="produitColumn"/>
+            <TableColumn text="Quantité" fx:id="quantiteColumn"/>
+            <TableColumn text="Date de demande" fx:id="dateDemandeColumn"/>
+            <TableColumn text="Statut" fx:id="statutColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane vgap="5" hgap="5">
+        <ComboBox fx:id="produitComboBox" promptText="Produit" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Spinner fx:id="quantiteSpinner" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <DatePicker fx:id="dateDemandePicker" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="statutLabel" text="Statut: En attente" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Envoyer demande" onAction="#handleSendRequest"/>
+        <Button text="Modifier demande" onAction="#handleEditRequest"/>
+        <Button text="Annuler demande" onAction="#handleCancelRequest"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    </HBox>
+</VBox>
