@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.gestionnaire.GestionFournisseur" spacing="10">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un fournisseur" HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+    </HBox>
+
+    <TableView fx:id="supplierTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Nom" fx:id="nomColumn"/>
+            <TableColumn text="Email" fx:id="emailColumn"/>
+            <TableColumn text="Téléphone" fx:id="telephoneColumn"/>
+            <TableColumn text="Adresse" fx:id="adresseColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane vgap="5" hgap="5">
+        <TextField fx:id="nomField" promptText="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="emailField" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="telephoneField" promptText="Téléphone" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="adresseField" promptText="Adresse" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#handleAddSupplier"/>
+        <Button text="Modifier" onAction="#handleEditSupplier"/>
+        <Button text="Supprimer" onAction="#handleDeleteSupplier"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.gestionnaire.PagePrincipale" spacing="20" alignment="CENTER">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <Label text="Tableau de bord du gestionnaire" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="20" vgap="20" alignment="CENTER">
+        <Button text="Gestion des stocks" onAction="#handleStockManagement" prefWidth="200" prefHeight="80" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Demandes de produits" onAction="#handleProductRequests" prefWidth="200" prefHeight="80" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Fournisseurs" onAction="#handleSuppliers" prefWidth="200" prefHeight="80" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Commandes" onAction="#handleOrders" prefWidth="200" prefHeight="80" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Mon profil" onAction="#handleProfile">
+            <font>
+                <Font size="14"/>
+            </font>
+        </Button>
+        <Button text="Déconnexion" onAction="#handleLogout">
+            <font>
+                <Font size="14"/>
+            </font>
+        </Button>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Connecté en tant que [Nom du gestionnaire]" style="-fx-font-style: italic;"/>
+</VBox>
