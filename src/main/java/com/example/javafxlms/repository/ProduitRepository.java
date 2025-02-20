@@ -13,7 +13,7 @@ public class ProduitRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    // Récupérer tous les produits
+
     public static ArrayList<Produit> recupererProduits() {
         ArrayList<Produit> liste = new ArrayList<>();
         String sql = "SELECT * FROM produit";
@@ -36,7 +36,7 @@ public class ProduitRepository {
         return liste;
     }
 
-    // Ajouter un produit
+
     public static void ajouterProduit(String libelle, String description, int dangerosite, int date_creation, int ref_utilisateur) {
         String sql = "INSERT INTO produit (libelle, description, dangerosite, date_creation, ref_utilisateur) VALUES (?, ?, ?, ?, ?)";
         try {
@@ -52,7 +52,7 @@ public class ProduitRepository {
         }
     }
 
-    // Récupérer un produit par son ID
+
     public static Produit getProduitById(int id_produit) {
         String sql = "SELECT * FROM produit WHERE id_produit = ?";
         try {
@@ -75,7 +75,6 @@ public class ProduitRepository {
         return null;
     }
 
-    // Supprimer un produit
     public static void supprimerProduit(int id_produit) {
         String sql = "DELETE FROM produit WHERE id_produit = ?";
         try {
@@ -87,7 +86,7 @@ public class ProduitRepository {
         }
     }
 
-    // Mettre à jour un produit
+
     public static void mettreAJourProduit(int id_produit, String libelle, String description, int dangerosite, int date_creation, int ref_utilisateur) {
         String sql = "UPDATE produit SET libelle = ?, description = ?, dangerosite = ?, date_creation = ?, ref_utilisateur = ? WHERE id_produit = ?";
         try {

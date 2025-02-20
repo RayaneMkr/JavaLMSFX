@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 
-<TabPane prefHeight="242.0" prefWidth="774.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.javafxlms.controller.admin.AdminController">
-    <tabs>
-        <Tab fx:id="userManagementTab" text="Gestion des utilisateurs" />
-        <Tab fx:id="roleManagementTab" text="Gestion des rôles" />
-        <Tab fx:id="productManagementTab" text="Gestion des produits" />
-        <Tab fx:id="supplierManagementTab" text="Gestion des fournisseurs" />
-        <Tab fx:id="orderManagementTab" text="Gestion des commandes" />
-        <Tab fx:id="reportsTab" text="Rapports" />
-    </tabs>
-</TabPane>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.admin.AdminController" spacing="20" alignment="CENTER">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <Label text="Tableau de bord de l'administrateur" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="20" vgap="20" alignment="CENTER">
+        <Button text="Secrétaire" onAction="#secretaire" prefWidth="200" prefHeight="80" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Médecin" onAction="#medecin" prefWidth="200" prefHeight="80" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Gestionnaire de stock" onAction="#gestionnaire" prefWidth="200" prefHeight="80" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+        <Button text="Gestion des utilisateurs" onAction="#gestionUtilisateur" prefWidth="200" prefHeight="80" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Button>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Mon profil" onAction="#monProfil">
+            <font>
+                <Font size="14"/>
+            </font>
+        </Button>
+        <Button text="Déconnexion" onAction="#deconnexion">
+            <font>
+                <Font size="14"/>
+            </font>
+        </Button>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Connecté en tant qu'administrateur" style="-fx-font-style: italic;"/>
+</VBox>

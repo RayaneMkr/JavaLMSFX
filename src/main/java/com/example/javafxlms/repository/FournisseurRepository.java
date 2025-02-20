@@ -13,7 +13,7 @@ public class FournisseurRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    // Récupérer tous les fournisseurs
+
     public static ArrayList<Fournisseur> recupererFournisseurs() {
         ArrayList<Fournisseur> liste = new ArrayList<>();
         String sql = "SELECT * FROM fournisseur";
@@ -36,7 +36,6 @@ public class FournisseurRepository {
         return liste;
     }
 
-    // Ajouter un fournisseur
     public static void ajouterFournisseur(String nom, String email, String rue, int cp, String ville) {
         String sql = "INSERT INTO fournisseur (nom, email, rue, cp, ville) VALUES (?, ?, ?, ?, ?)";
         try {
@@ -52,7 +51,7 @@ public class FournisseurRepository {
         }
     }
 
-    // Récupérer un fournisseur par son ID
+
     public static Fournisseur getFournisseurById(int id_fournisseur) {
         String sql = "SELECT * FROM fournisseur WHERE id_fournisseur = ?";
         try {
@@ -75,7 +74,7 @@ public class FournisseurRepository {
         return null;
     }
 
-    // Supprimer un fournisseur
+
     public static void supprimerFournisseur(int id_fournisseur) {
         String sql = "DELETE FROM fournisseur WHERE id_fournisseur = ?";
         try {
@@ -87,7 +86,7 @@ public class FournisseurRepository {
         }
     }
 
-    // Mettre à jour un fournisseur
+
     public static void mettreAJourFournisseur(int id_fournisseur, String nom, String email, String rue, int cp, String ville) {
         String sql = "UPDATE fournisseur SET nom = ?, email = ?, rue = ?, cp = ?, ville = ? WHERE id_fournisseur = ?";
         try {

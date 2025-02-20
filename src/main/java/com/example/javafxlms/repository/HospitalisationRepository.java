@@ -13,7 +13,7 @@ public class HospitalisationRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    // Récupérer toutes les hospitalisations
+
     public static ArrayList<Hospitalisation> recupererHospitalisations() {
         ArrayList<Hospitalisation> liste = new ArrayList<>();
         String sql = "SELECT * FROM hospitalisation";
@@ -36,7 +36,6 @@ public class HospitalisationRepository {
         return liste;
     }
 
-    // Ajouter une hospitalisation
     public static void ajouterHospitalisation(int date_debut, int date_fin, String maladie, int num_chambre, int ref_utilisateur) {
         String sql = "INSERT INTO hospitalisation (date_debut, date_fin, maladie, num_chambre, ref_utilisateur) VALUES (?, ?, ?, ?, ?)";
         try {
@@ -52,7 +51,7 @@ public class HospitalisationRepository {
         }
     }
 
-    // Récupérer une hospitalisation par son ID
+
     public static Hospitalisation getHospitalisationById(int id_hospitalisation) {
         String sql = "SELECT * FROM hospitalisation WHERE id_hospitalisation = ?";
         try {
@@ -75,7 +74,7 @@ public class HospitalisationRepository {
         return null;
     }
 
-    // Supprimer une hospitalisation
+
     public static void supprimerHospitalisation(int id_hospitalisation) {
         String sql = "DELETE FROM hospitalisation WHERE id_hospitalisation = ?";
         try {
@@ -87,7 +86,7 @@ public class HospitalisationRepository {
         }
     }
 
-    // Mettre à jour une hospitalisation
+
     public static void mettreAJourHospitalisation(int id_hospitalisation, int date_debut, int date_fin, String maladie, int num_chambre, int ref_utilisateur) {
         String sql = "UPDATE hospitalisation SET date_debut = ?, date_fin = ?, maladie = ?, num_chambre = ?, ref_utilisateur = ? WHERE id_hospitalisation = ?";
         try {
