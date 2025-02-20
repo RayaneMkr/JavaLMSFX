@@ -4,12 +4,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.secretaire.PriseEnChargeController" spacing="10">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.SecretaryCareFileManagementController" spacing="10">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <HBox spacing="10" alignment="CENTER_LEFT">
         <TextField fx:id="searchField" promptText="Rechercher un dossier" HBox.hgrow="ALWAYS"/>
-        <Button text="Rechercher" onAction="#rechercher"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
     </HBox>
 
     <TableView fx:id="careFileTable" VBox.vgrow="ALWAYS">
@@ -32,8 +32,9 @@
     </GridPane>
 
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Ajouter" onAction="#ajouter"/>
-        <Button text="Modifier" onAction="#modifier"/>
-        <Button text="Supprimer" onAction="#supprimer"/>
+        <Button text="Ajouter" onAction="#handleAddCareFile"/>
+        <Button text="Modifier" onAction="#handleEditCareFile"/>
+        <Button text="Supprimer" onAction="#handleDeleteCareFile"/>
+        <Button text="Réinitialiser" onAction="#handleResetForm"/>
     </HBox>
 </VBox>

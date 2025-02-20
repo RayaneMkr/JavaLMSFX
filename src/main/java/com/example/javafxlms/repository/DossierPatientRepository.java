@@ -13,7 +13,7 @@ public class DossierPatientRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    // Récupérer tous les dossiers patients
+
     public static ArrayList<DossierPatient> recupererDossiersPatients() {
         ArrayList<DossierPatient> liste = new ArrayList<>();
         String sql = "SELECT * FROM dossier_patient";
@@ -36,7 +36,7 @@ public class DossierPatientRepository {
         return liste;
     }
 
-    // Ajouter un dossier patient
+
     public static void ajouterDossierPatient(int date_arrive, int heure_arrive, String symptome, int gravite, int ref_utilisateur) {
         String sql = "INSERT INTO dossier_patient (date_arrive, heure_arrive, symptome, gravite, ref_utilisateur) VALUES (?, ?, ?, ?, ?)";
         try {
@@ -52,7 +52,7 @@ public class DossierPatientRepository {
         }
     }
 
-    // Récupérer un dossier patient par son ID
+
     public static DossierPatient getDossierPatientById(int id_dossier_patient) {
         String sql = "SELECT * FROM dossier_patient WHERE id_dossier_patient = ?";
         try {
@@ -75,7 +75,7 @@ public class DossierPatientRepository {
         return null;
     }
 
-    // Supprimer un dossier patient
+
     public static void supprimerDossierPatient(int id_dossier_patient) {
         String sql = "DELETE FROM dossier_patient WHERE id_dossier_patient = ?";
         try {
@@ -87,7 +87,7 @@ public class DossierPatientRepository {
         }
     }
 
-    // Mettre à jour un dossier patient
+
     public static void mettreAJourDossierPatient(int id_dossier_patient, int date_arrive, int heure_arrive, String symptome, int gravite, int ref_utilisateur) {
         String sql = "UPDATE dossier_patient SET date_arrive = ?, heure_arrive = ?, symptome = ?, gravite = ?, ref_utilisateur = ? WHERE id_dossier_patient = ?";
         try {

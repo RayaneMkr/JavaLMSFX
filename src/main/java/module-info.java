@@ -12,6 +12,8 @@ module com.example.javafxlms {
     exports com.example.javafxlms.controller.admin;
     exports com.example.javafxlms.controller.secretaire;
     exports com.example.javafxlms.controller.medecin;
+    exports com.example.javafxlms.controller.gestionnaire;
+    opens com.example.javafxlms.controller.gestionnaire to javafx.fxml;
     opens com.example.javafxlms.controller.medecin to javafx.fxml;
     opens com.example.javafxlms.controller.secretaire to javafx.fxml;
     opens com.example.javafxlms.controller.admin to javafx.fxml;

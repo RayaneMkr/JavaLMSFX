@@ -50,8 +50,9 @@ public class LoginController {
             HelloApplication.changeScene("pageSecretaire/principal","Principale");
         }else if(UserConnecte.getINSTANCE()!=null && UserConnecte.getINSTANCE().getRole()== Roles.getIdRole(Roles.MEDECIN)){
             HelloApplication.changeScene("pageMedecin/principale","Principale");
-        }
-    }
+        }else if(UserConnecte.getINSTANCE()!=null && UserConnecte.getINSTANCE().getRole()== Roles.getIdRole(Roles.GESTIONNAIRE)){
+        HelloApplication.changeScene("pageGestionnaire/pagePrincipale","Principale");
+    }}
 
     @FXML
     void OnClickOublieMdp(ActionEvent event) {
