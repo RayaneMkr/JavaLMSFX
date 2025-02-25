@@ -22,6 +22,7 @@
         <Button fx:id="rechercher" onAction="#rechercher" text="Rechercher" />
     </HBox>
 
+
     <TableView fx:id="requestTable" onSort="#tableau" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="idColumn" text="ID" />

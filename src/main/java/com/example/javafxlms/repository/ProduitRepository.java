@@ -37,6 +37,7 @@ public class ProduitRepository {
     }
 
 
+
     public static void ajouterProduit(String libelle, String description, int dangerosite, int date_creation, int ref_utilisateur) {
         String sql = "INSERT INTO produit (libelle, description, dangerosite, date_creation, ref_utilisateur) VALUES (?, ?, ?, ?, ?)";
         try {

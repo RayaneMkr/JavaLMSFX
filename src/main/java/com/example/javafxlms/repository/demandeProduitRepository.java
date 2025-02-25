@@ -62,6 +62,7 @@ public class demandeProduitRepository {
             PreparedStatement requete = connection.prepareStatement(sql);
             ResultSet resultatRequete = requete.executeQuery();
             while (resultatRequete.next()){
+
                 liste.add(new DemandeProduit(
                         resultatRequete.getInt("id_demande_produit"),
                         resultatRequete.getInt("quantite"),

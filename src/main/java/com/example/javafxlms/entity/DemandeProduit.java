@@ -9,6 +9,7 @@ public class DemandeProduit {
     private int ref_produit;
     private int ref_validateur;
 
+
     public int getId_demande_produit() {
         return id_demande_produit;
     }

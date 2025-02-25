@@ -35,6 +35,7 @@ public class AjoutProduit {
         String dangerositeText = dangerosite.getText();
         LocalDate dateCreation = date.getValue();
 
+
         // Vérification si les champs sont remplis
         if (libelleText.isEmpty() || descriptionText.isEmpty() || dangerositeText.isEmpty() || dateCreation == null) {
             afficherMessage("Erreur", "Veuillez remplir tous les champs.");
