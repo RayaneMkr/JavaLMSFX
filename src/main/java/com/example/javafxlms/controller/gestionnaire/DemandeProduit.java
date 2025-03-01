@@ -86,4 +86,7 @@ public class DemandeProduit {
 
     }
 
+    public void Retour(ActionEvent actionEvent) {
+        HelloApplication.changeScene("pageGestionnaire/pagePrincipale","pagPrincipale");
+    }
 }

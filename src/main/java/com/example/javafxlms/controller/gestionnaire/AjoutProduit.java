@@ -1,5 +1,6 @@
 package com.example.javafxlms.controller.gestionnaire;
 
+import com.example.javafxlms.HelloApplication;
 import com.example.javafxlms.repository.ProduitRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,7 @@ public class AjoutProduit {
 
     @FXML
     void ajouter(ActionEvent event) {
-        // Récupération des valeurs des champs
+
         String libelleText = libelle.getText();
         String descriptionText = description.getText();
         String dangerositeText = dangerosite.getText();
@@ -51,7 +52,7 @@ public class AjoutProduit {
 
             // Ajout du produit dans la base de données
             // On utilise 1 comme ID utilisateur par défaut
-            ProduitRepository.ajouterProduit(libelleText, descriptionText, dangerositeInt, dateCreationInt, 1);
+           ProduitRepository.ajouterProduit(libelleText, descriptionText, dangerositeInt, dateCreationInt, 1);
 
             // Affichage d'un message de succès
             afficherMessage("Succès", "Le produit a été ajouté avec succès.");
@@ -89,11 +90,16 @@ public class AjoutProduit {
 
     }
 
-    private void afficherMessage(String titre, String message) {
+    static void afficherMessage(String titre, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titre);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+
+    public void retour(ActionEvent actionEvent) {
+        HelloApplication.changeScene("pageGestionnaire/demandeProduit","dmdProduit");
     }
 }

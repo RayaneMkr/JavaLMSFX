@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="445.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxlms.controller.gestionnaire.AjoutFournisseur">
+   <children>
+      <TextField fx:id="nom" layoutX="128.0" layoutY="65.0" onAction="#nom" promptText="Nom" />
+      <TextField fx:id="email" layoutX="128.0" layoutY="106.0" onAction="#email" promptText="Email" />
+      <TextField fx:id="rue" layoutX="127.0" layoutY="146.0" onAction="#rue" promptText="Rue" />
+      <Button fx:id="ajouter" layoutX="345.0" layoutY="338.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+      <Text layoutX="148.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout D'un Fournisseur" />
+      <Button fx:id="Retour" layoutX="23.0" layoutY="338.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+      <TextField fx:id="cp" layoutX="127.0" layoutY="188.0" onAction="#cp" promptText="Code postale" />
+      <TextField fx:id="ville" layoutX="127.0" layoutY="233.0" onAction="#ville" promptText="Ville" />
+   </children>
+</AnchorPane>

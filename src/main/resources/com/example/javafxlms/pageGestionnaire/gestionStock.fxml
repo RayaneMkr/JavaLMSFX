@@ -1,39 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafxlms.controller.gestionnaire.GestionStock" spacing="10">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.javafxlms.controller.gestionnaire.GestionStock">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
-    <HBox spacing="10" alignment="CENTER_LEFT">
-        <TextField fx:id="searchField" promptText="Rechercher un produit" HBox.hgrow="ALWAYS"/>
-        <Button text="Rechercher" onAction="#Rechercher"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <TextField fx:id="searchField" promptText="Rechercher un produit" HBox.hgrow="ALWAYS" />
+        <Button onAction="#Rechercher" text="Rechercher" />
     </HBox>
 
     <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn text="ID" fx:id="idColumn"/>
-            <TableColumn text="Libellé" fx:id="libelleColumn"/>
-            <TableColumn text="Description" fx:id="descriptionColumn"/>
-            <TableColumn text="Quantité en stock" fx:id="quantiteColumn"/>
-            <TableColumn text="Seuil d'alerte" fx:id="seuilAlerteColumn"/>
-            <TableColumn text="Dangerosité" fx:id="dangerositeColumn"/>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="libelleColumn" text="Libellé" />
+            <TableColumn fx:id="descriptionColumn" text="Description" />
+            <TableColumn fx:id="quantiteColumn" text="Quantité en stock" />
+            <TableColumn fx:id="seuilAlerteColumn" text="Seuil d'alerte" />
+            <TableColumn fx:id="dangerositeColumn" text="Dangerosité" />
         </columns>
     </TableView>
 
-    <GridPane vgap="5" hgap="5">
-        <TextField fx:id="libelleField" promptText="Libellé" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextArea fx:id="descriptionArea" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2"/>
-        <Spinner fx:id="quantiteSpinner" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <Spinner fx:id="seuilAlerteSpinner" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <Spinner fx:id="dangerositeSpinner" min="1" max="5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <GridPane hgap="5" vgap="5">
+        <TextField fx:id="libelleField" promptText="Libellé" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextArea fx:id="descriptionArea" promptText="Description" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2" />
+        <Spinner fx:id="quantiteSpinner" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Spinner fx:id="seuilAlerteSpinner" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Spinner fx:id="dangerositeSpinner" max="5" min="1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Ajouter" onAction="#Ajouter"/>
-        <Button text="Modifier" onAction="#Modifier"/>
-        <Button text="Supprimer" onAction="#Supprimer"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button onAction="#Ajouter" text="Ajouter" />
+        <Button onAction="#Modifier" text="Modifier" />
+        <Button onAction="#Supprimer" text="Supprimer" />
+      <Button fx:id="retour" onAction="#Retour" text="Retour" />
     </HBox>
 </VBox>
