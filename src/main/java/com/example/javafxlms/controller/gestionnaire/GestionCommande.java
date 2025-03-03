@@ -1,5 +1,6 @@
 package com.example.javafxlms.controller.gestionnaire;
 
+import com.example.javafxlms.HelloApplication;
 import javafx.event.ActionEvent;
 
 public class GestionCommande {
@@ -7,6 +8,7 @@ public class GestionCommande {
     }
 
     public void Ajouter(ActionEvent event) {
+        HelloApplication.changeScene("pageGestionnaire/ajoutCommande","ajoutCommande");
     }
 
     public void Modifier(ActionEvent event) {
