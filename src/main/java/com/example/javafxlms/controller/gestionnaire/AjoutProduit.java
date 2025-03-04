@@ -37,27 +37,27 @@ public class AjoutProduit {
         LocalDate dateCreation = date.getValue();
 
 
-        // Vérification si les champs sont remplis
+
         if (libelleText.isEmpty() || descriptionText.isEmpty() || dangerositeText.isEmpty() || dateCreation == null) {
             afficherMessage("Erreur", "Veuillez remplir tous les champs.");
             return;
         }
 
         try {
-            // Conversion de la dangerosité en entier
+
             int dangerositeInt = Integer.parseInt(dangerositeText);
 
-            // Conversion de la date en nombre de jours depuis 1970
+
             int dateCreationInt = (int) dateCreation.toEpochDay();
 
-            // Ajout du produit dans la base de données
-            // On utilise 1 comme ID utilisateur par défaut
+
+
            ProduitRepository.ajouterProduit(libelleText, descriptionText, dangerositeInt, dateCreationInt, 1);
 
-            // Affichage d'un message de succès
+
             afficherMessage("Succès", "Le produit a été ajouté avec succès.");
 
-            // Réinitialisation des champs
+
             libelle.clear();
             description.clear();
             dangerosite.clear();

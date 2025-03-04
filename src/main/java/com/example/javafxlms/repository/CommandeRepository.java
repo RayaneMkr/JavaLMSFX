@@ -2,10 +2,8 @@ package com.example.javafxlms.repository;
 
 import com.example.javafxlms.bdd.Bdd;
 import com.example.javafxlms.entity.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 
 public class CommandeRepository {
@@ -35,14 +33,14 @@ public class CommandeRepository {
         }
         return liste;
     }
-    public static void AjouterUneCommande(int prix,int quantite,int etat,int date_commande,int ref_fournisseur,int ref_produit) {
+    public static void AjouterUneCommande(int prix, int quantite, int etat, Date date_commande, int ref_fournisseur, int ref_produit) {
         String sql= "INSERT INTO commande(prix,quantite,etat,date_commande,ref_fournisseur,ref_produit ) VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement requete = connection.prepareStatement(sql);
             requete.setInt(1, prix);
             requete.setInt(2,quantite);
             requete.setInt(3,etat);
-            requete.setInt(4,date_commande);
+            requete.setDate(4,date_commande);
             requete.setInt(5,ref_fournisseur);
             requete.setInt(6,ref_produit);
             requete.executeUpdate();

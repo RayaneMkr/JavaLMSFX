@@ -1,6 +1,7 @@
 package com.example.javafxlms.controller.gestionnaire;
 
-import com.example.javafxlms.repository.ProduitRepository;
+import com.example.javafxlms.HelloApplication;
+import com.example.javafxlms.repository.CommandeRepository;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +9,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 
 
@@ -22,7 +25,7 @@ public class AjoutCommande {
     private Button ajouter;
 
     @FXML
-    private AnchorPane date_commande;
+    private DatePicker date;
 
     @FXML
     private TextField etat;
@@ -35,36 +38,30 @@ public class AjoutCommande {
 
     @FXML
     void ajouter(ActionEvent event) {
-       String prixText = prix.getText();
-       String quantiteText = quantite.getText();
-       String etatText = etat.getText();
-       LocalDate dateCreation = date_commande.getValue();
+        int prixInt = Integer.parseInt(prix.getText());
+        int quantiteInt = Integer.parseInt(quantite.getText());
+        int etatInt = Integer.parseInt(etat.getText());
+        Date dateCreation = Date.valueOf(date.getValue());
 
 
 
-        if (prixText.isEmpty() || quantiteText.isEmpty() || etatText.isEmpty() || date_commande == null) {
+        if (prixInt==0 || quantiteInt==0 || etatInt==0 || date == null) {
             afficherMessage("Erreur", "Veuillez remplir tous les champs.");
             return;
         }
 
         try {
-            int prixInt = Integer.parseInt(prixText);
-            int quantiteInt = Integer.parseInt(quantiteText);
-            int etatInt = Integer.parseInt(quantiteText);
-
-            ProduitRepository.ajouterProduit(prixText, quantiteText, etatInt, date_commande, 1);
-
-            // Affichage d'un message de succès
+            CommandeRepository.AjouterUneCommande(quantiteInt, prixInt, etatInt, dateCreation,1,1);
             afficherMessage("Succès", "Le produit a été ajouté avec succès.");
 
-            // Réinitialisation des champs
+
             prix.clear();
             quantite.clear();
             etat.clear();
-            date_commande.setValue(null);
+            date.setValue(null);
 
         } catch (NumberFormatException e) {
-            afficherMessage("Erreur", "La dangerosité doit être un nombre.");
+            afficherMessage("Erreur", "Le statut doit être un nombre.");
         } catch (Exception e) {
             afficherMessage("Erreur", "Une erreur est survenue : " + e.getMessage());
         }
@@ -96,40 +93,9 @@ public class AjoutCommande {
     }
 
     @FXML
-    void retour(ActionEvent event) {
+    void retour(ActionEvent event) throws IOException {
+        HelloApplication.changeScene("pageGestionnaire/gestionCommande","gestionCommande");
 
-    }
-
-    public TextField getPrix() {
-        return prix;
-    }
-
-    public void setPrix(TextField prix) {
-        this.prix = prix;
-    }
-
-    public TextField getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(TextField quantite) {
-        this.quantite = quantite;
-    }
-
-    public TextField getEtat() {
-        return etat;
-    }
-
-    public void setEtat(TextField etat) {
-        this.etat = etat;
-    }
-
-    public AnchorPane getDate_commande() {
-        return date_commande;
-    }
-
-    public void setDate_commande(AnchorPane date_commande) {
-        this.date_commande = date_commande;
     }
 
     public Button getAjouter() {
