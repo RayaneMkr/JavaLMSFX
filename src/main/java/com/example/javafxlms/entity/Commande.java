@@ -1,15 +1,17 @@
 package com.example.javafxlms.entity;
 
+import java.sql.Date;
+
 public class Commande {
     private int id_commande;
     private int prix;
     private int quantite;
     private String etat;
-    private int date_commande;
+    private Date date_commande;
     private int ref_fournisseur;
     private int ref_produit;
 
-    public Commande(int id_commande, int prix, int quantite, String etat, int date_commande, int ref_fournisseur, int ref_produit) {
+    public Commande(int id_commande, int prix, int quantite, String etat, Date date_commande, int ref_fournisseur, int ref_produit) {
         this.id_commande = id_commande;
         this.prix = prix;
         this.quantite = quantite;
@@ -52,11 +54,11 @@ public class Commande {
         this.etat = etat;
     }
 
-    public int getDate_commande() {
+    public Date getDate_commande() {
         return date_commande;
     }
 
-    public void setDate_commande(int date_commande) {
+    public void setDate_commande(Date date_commande) {
         this.date_commande = date_commande;
     }
 

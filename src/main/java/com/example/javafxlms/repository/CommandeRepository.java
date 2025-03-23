@@ -11,19 +11,21 @@ public class CommandeRepository {
     static Bdd connexionBdd = new Bdd();
     static Connection connection = connexionBdd.getConnection();
 
-    public static ArrayList<Commande> recupererCommandes() {
+    public  ArrayList<Commande> recupererCommandes() {
         ArrayList<Commande> liste = new ArrayList<>();
         String sql = "SELECT * FROM commande";
         try {
             PreparedStatement requetePrepare = connection.prepareStatement(sql);
             ResultSet resultatRequete = requetePrepare.executeQuery();
             while (resultatRequete.next()) {
+                System.out.println("Hey ! Commande");
+                System.out.println("Qte "+resultatRequete.getInt("quantite"));
                 liste.add(new Commande(
                         resultatRequete.getInt("id_comande"),
                         resultatRequete.getInt("prix"),
                         resultatRequete.getInt("quantite"),
                         resultatRequete.getString("etat"),
-                        resultatRequete.getInt("date_commande"),
+                        resultatRequete.getDate("date_commande"),
                         resultatRequete.getInt("ref_fournisseur"),
                         resultatRequete.getInt("ref_produit")
                 ));
@@ -31,6 +33,9 @@ public class CommandeRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println();
+        System.out.println("repo"+liste.size());
+        System.out.println();
         return liste;
     }
     public static void AjouterUneCommande(int prix, int quantite, int etat, Date date_commande, int ref_fournisseur, int ref_produit) {

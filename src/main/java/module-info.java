@@ -18,5 +18,5 @@ module com.example.javafxlms {
     opens com.example.javafxlms.controller.secretaire to javafx.fxml;
     opens com.example.javafxlms.controller.admin to javafx.fxml;
     opens com.example.javafxlms.controller to javafx.fxml;
-
+    opens com.example.javafxlms.entity to javafx.base;
 }
