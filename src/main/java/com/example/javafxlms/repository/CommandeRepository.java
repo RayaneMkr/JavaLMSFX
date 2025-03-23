@@ -33,9 +33,6 @@ public class CommandeRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println();
-        System.out.println("repo"+liste.size());
-        System.out.println();
         return liste;
     }
     public static void AjouterUneCommande(int prix, int quantite, int etat, Date date_commande, int ref_fournisseur, int ref_produit) {

@@ -52,7 +52,7 @@ public class AjoutFournisseur {
 
            FournisseurRepository.ajouterFournisseur(nomText, emailText, rueText, cpInt, villeText);
 
-           AjoutProduit.afficherMessage("Succès", "Le produit a été ajouté avec succès.");
+           AjoutProduit.afficherMessage("Succès", "Le fournisseur a été ajouté avec succès.");
 
            nom.clear();
            email.clear();

@@ -112,14 +112,14 @@ public class GestionCommande implements Initializable {
                 {"Fournisseur","ref_fournisseur"},
                 {"Produit","ref_produit"},
         };
-        for (int i = 0; i < colonnes.length; i++) {
-            TableColumn<Commande, String> macolonne = new TableColumn<>(colonnes[i][0]);
-            macolonne.setCellValueFactory(new PropertyValueFactory<>(colonnes[i][1]));
-            tableauCommande.getColumns().add(macolonne);
-        }
-        ArrayList<Commande> list = commandeRepository.recupererCommandes();
-        System.out.println(list.size());
-        System.out.println(list.getFirst());
-        tableauCommande.getItems().addAll(list);
-    }
+                for (int i = 0; i < colonnes.length; i++) {
+                    TableColumn<Commande, String> macolonne = new TableColumn<>(colonnes[i][0]);
+                    macolonne.setCellValueFactory(new PropertyValueFactory<>(colonnes[i][1]));
+                    tableauCommande.getColumns().add(macolonne);
+                }
+                ArrayList<Commande> list = commandeRepository.recupererCommandes();
+                System.out.println(list.size());
+                System.out.println(list.getFirst());
+                tableauCommande.getItems().addAll(list);
+            }
 }
