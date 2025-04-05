@@ -1,5 +1,6 @@
 package com.example.javafxlms.controller.medecin;
 
+import com.example.javafxlms.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,16 +15,13 @@ import javafx.scene.control.TextField;
 public class DemandeProduitController {
 
     @FXML
-    private Button annulerDemande;
+    private Button AjouterDemande;
 
     @FXML
     private TableColumn<?, ?> dateDemandeColumn;
 
     @FXML
     private DatePicker dateDemandePicker;
-
-    @FXML
-    private Button envoyerDemande;
 
     @FXML
     private TableColumn<?, ?> idColumn;
@@ -50,6 +48,9 @@ public class DemandeProduitController {
     private Button rechercher;
 
     @FXML
+    private Button retour;
+
+    @FXML
     private TextField searchField;
 
     @FXML
@@ -59,17 +60,17 @@ public class DemandeProduitController {
     private Label statutLabel;
 
     @FXML
-    void annulerDemande(ActionEvent event) {
+    void AjouterDemande(ActionEvent event) {
+        HelloApplication.changeScene("pageMedecin/ajoutDemandeProduit","AjouterDemande.fxml");
+    }
 
+    @FXML
+    void Retour(ActionEvent event) {
+        HelloApplication.changeScene("pageMedecin/principale","demandeProduitTOprincipale");
     }
 
     @FXML
     void date(ActionEvent event) {
-
-    }
-
-    @FXML
-    void envoyerDemande(ActionEvent event) {
 
     }
 

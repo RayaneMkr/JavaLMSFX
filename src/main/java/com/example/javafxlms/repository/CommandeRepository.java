@@ -2,6 +2,7 @@ package com.example.javafxlms.repository;
 
 import com.example.javafxlms.bdd.Bdd;
 import com.example.javafxlms.entity.*;
+import javafx.scene.control.Label;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class CommandeRepository {
             throw new RuntimeException(e);
         }
     }
-    public static void supprimerCommande(int id_commande) {
+    public static void supprimerCommande(int id_commande, Label erreur) {
         String sql = "DELETE FROM commande WHERE id_commande = ?";
         try {
             PreparedStatement requete = connection.prepareStatement(sql);

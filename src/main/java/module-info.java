@@ -5,6 +5,7 @@ module com.example.javafxlms {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires spring.security.crypto;
+    requires java.desktop;
 
     opens com.example.javafxlms to javafx.fxml;
     exports com.example.javafxlms;

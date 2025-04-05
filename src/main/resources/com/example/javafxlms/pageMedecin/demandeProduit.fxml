@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxlms.controller.medecin.DemandeProduitController">
+<VBox spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxlms.controller.medecin.DemandeProduitController">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <HBox alignment="CENTER_LEFT" spacing="10">
@@ -49,8 +49,8 @@
     </GridPane>
 
     <HBox alignment="CENTER" spacing="10">
-        <Button fx:id="envoyerDemande" onAction="#envoyerDemande" text="Envoyer demande" />
+        <Button fx:id="AjouterDemande" onAction="#AjouterDemande" text="Ajouter une delande" />
         <Button fx:id="modifierDemande" onAction="#modifierDemande" text="Modifier demande" />
-        <Button fx:id="annulerDemande" onAction="#annulerDemande" text="Annuler demande" />
+        <Button fx:id="retour" onAction="#Retour" text="retour" />
     </HBox>
 </VBox>

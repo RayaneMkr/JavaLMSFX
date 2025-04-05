@@ -21,7 +21,7 @@
         <Button fx:id="rechercher" onAction="#rechercher" text="Rechercher" />
     </HBox>
 
-    <TableView fx:id="tableauCommande" prefWidth="722.0" VBox.vgrow="ALWAYS" />
+    <TableView fx:id="tableauCommande" onMouseClicked="#onListeSelection" prefWidth="722.0" VBox.vgrow="ALWAYS" />
 
     <GridPane hgap="5" vgap="5">
         <ComboBox fx:id="fournisseurComboBox" onAction="#fournisseur" promptText="Fournisseur" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -45,6 +45,7 @@
         <Button fx:id="ajouter" onAction="#Ajouter" text="Ajouter" />
         <Button fx:id="modifier" onAction="#Modifier" text="Modifier" />
         <Button fx:id="annuler" onAction="#Annuler" text="Annuler" />
+      <Button fx:id="supprimer" onAction="#Supprimer" text="Supprimer" />
     </HBox>
    <Button fx:id="retour" onAction="#retour" text="retour" />
 </VBox>
